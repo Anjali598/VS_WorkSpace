@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+     <html lang="en">
+     <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>Web Environment Example</title>
+     </head>
+     <body>
+         <button onclick="sendCustomEvent('customEvent with double quotes 1')">RNUI Custom double quotes 1</button>
+         <button onclick="sendCustomEvent('customEvent with double quotes 2')">RNUI Custom double quotes 2</button>
+     
+         <script>
+             function sendCustomEvent(eventName) {
+                 // Use window.postMessage to send a message to the parent WebView
+                 var dataObject1 = {
+                   "Event": eventName,
+                   "ErrorCode": 'value2',
+                   "Description": 123
+                 };
+                 window.ReactNativeWebView.postMessage(JSON.stringify(dataObject1));
+             }
+
+             document.addEventListener('keydown', function(event) {
+            // Check if the key pressed is the back button
+            var dataObject1 = {
+                   "key": event.key,
+                   "keyCode": event.keyCode,
+                   "type": event.type,
+                 };
+                 console.log(`\n\n Anjali : Event \n ${JSON.stringify(event)}`);
+                 window.ReactNativeWebView.postMessage(JSON.stringify(event));
+
+            if (event.key === 'Backspace' || event.key === 'Back') {
+                // Show an alert or perform any action you need
+                alert('Back button pressed!');
+                sendCustomEvent('RN UI back button');
+            }
+        });
+     
+             // You can also listen for messages from the parent WebView
+             window.addEventListener('message', function(event) {
+                 console.log('Received message:', event.data);
+                 
+                 // Handle the received message as needed
+             });
+         </script>
+     </body>
+     </html>

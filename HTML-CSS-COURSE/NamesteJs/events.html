@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+
+    <style>
+        #grandparent, #parent, #child {
+            min-width: 100px;
+            min-height: 100px;
+            padding: 30px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="grandparent">
+        <div id="parent">
+            <div id="child">
+
+            </div>
+        </div>
+
+    </div>
+
+    <div>
+        <ul id="category">
+            <li id="laptops">Laptops</li>
+            <li id="cameras">Cameras</li>
+            <li id="shoes">Shoes</li>
+        </ul>
+    </div>
+
+    <div id="form">
+        <input type="text" id="name" data-uppercase>
+        <input type="text"  id="pan">
+        <input type="text"  id="mobile" data-uppercase>
+    </div>
+    <br>
+    <input type="text" onkeyup="betterFucntion()">
+    <script>
+        document.querySelector("#grandparent").addEventListener('click', () => {
+            console.log("Grandparent Clicked");
+        },false);
+
+        document.querySelector("#parent").addEventListener('click', () => {
+            console.log("Parent Clicked");
+        },true);
+
+        document.querySelector("#child").addEventListener('click', () => {
+            console.log("Child Clicked");
+        },false);
+
+        let name = {
+            firstname: "Anjali",
+            lastname: "devi",
+            // printFullName : function () {
+            //     console.log(this.firstname+ " "+this.lastname);
+            // }
+        }
+
+          let  printFullName = function (homeTown,state) {
+                console.log(this.firstname+ " "+this.lastname + " from "+homeTown+" , "+state);
+            }
+       // name.printFullName();
+       printFullName.call(name,"jammalamadugu" , "kadapa");
+
+        let name2 ={
+            firstname: "Ganesh",
+            lastname: "Reddy", 
+        }
+        // funtion barrowing / call
+       // name.printFullName.call(name2);
+
+       printFullName.call(name2,"vempalli", "kadapa");
+
+       printFullName.apply(name2,["vempalli", "kadapa"]);
+
+       // Bind method
+
+       //bind does not  directly invoke the method, but gives the copy of the exactly same method which can be invoke later 
+       let myFullName = printFullName.bind(name2,"vempalli", "kadapa");
+
+       console.log(myFullName);
+
+       myFullName();
+
+       Function.prototype.mybind = function(...args) {
+        let obj =this;
+
+        return function() {
+        obj.apply( args[0], ["vempalli", "kadapa"]);
+
+        }
+        
+       }
+
+       let myFullName2 = printFullName.mybind(name,"jammalamadugu", "kadapa");
+       myFullName2();
+
+document.querySelector("#category").addEventListener('click',(e) =>{
+    console.log(e.target.id);   
+     if(e.target.tagName == 'LI'){
+        window.location.href = "/"+e.target.id;
+     }
+});
+
+document.querySelector("#form").addEventListener('keyup',(e) => {
+ console.log(e);
+ if(e.target.dataset.uppercase != undefined){
+        e.target.value = e.target.value.toUpperCase();
+     }
+});
+
+let counter = 0;
+const getData =() =>{
+    //calls an api and get data
+    console.log("Fetching data ..",counter++);
+
+}
+const debounce = function(fn, delay){
+    let timer;
+    return function (){
+        let context =       this,
+        args =arguments;
+        clearTimeout(timer);
+        timer = setTimeout(()=>{
+            getData.apply(context, arguments);
+        },delay);
+    }
+
+}
+
+const betterFucntion = debounce(getData,300);
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Web Environment Example</title>
+  </head>
+  <body>
+      <button onclick="sendCustomEvent('RNUI Custom Button 1')">RNUI Custom Button 1</button>
+      <button onclick="sendCustomEvent('RNUI Custom Button 2')">RNUI Custom Button 2</button>
+  
+      <script>
+          function sendCustomEvent(eventName) {
+              // Use window.postMessage to send a message to the parent WebView
+              console.log(' Ganesh : WebPage : sendCustomEvent : Invoked window.ReactNativeWebView.postMessage');
+              var dataObject1 = {
+                "Event": eventName,
+                "Error-code": "WebPage-ErrorCode",
+                "Description": "WebPage-Description"
+              };
+              window.ReactNativeWebView.postMessage(JSON.stringify(dataObject1));
+          }
+
+          document.addEventListener('message', function(event) {
+            if (event.data === 'Remote_Back_Pressed') {
+              console.log(' Ganesh : WebPage : Received message from React Native: ', event.data);
+              sendCustomEvent('Back_Button_from_WebPage')
+            };
+          });
+      </script>
+  </body>
+  </html>
