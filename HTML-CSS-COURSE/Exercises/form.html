@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Environment Example</title>
+</head>
+<body>
+
+    
+    <button onclick="sendCustomEvent('customEvent1')">Send Custom Event 1</button>
+    <button onclick="sendCustomEvent('customEvent2')">Send Custom Event 2</button>
+
+    <script>
+        function sendCustomEvent(eventName) {
+            // Use window.postMessage to send a message to the parent WebView
+            window.postMessage(eventName);
+        }
+
+        // You can also listen for messages from the parent WebView
+        window.addEventListener('message', function(event) {
+            console.log('Received message:', event.data);
+            // Handle the received message as needed
+        });
+    </script>
+</body>
+</html>

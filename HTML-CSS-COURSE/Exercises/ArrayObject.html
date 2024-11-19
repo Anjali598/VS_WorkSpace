@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArrayObjects</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+</body>
+
+<script>
+    const cars = ["Sab","Volvo","Bmw"];
+    const cars1 = ["Audi"];
+    document.getElementById("demo").innerHTML = cars.concat(cars1);
+    
+    const c = cars.entries();
+
+ for(let cr of c) {
+    document.getElementById("demo1").innerHTML += cr + "<br>";
+ }
+
+
+</script>
+</html>

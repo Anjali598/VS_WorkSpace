@@ -1,0 +1,306 @@
+.image{
+    width: 200px;
+    border-radius: 20px;
+
+}
+.image1{
+    width: 200px;
+    height: 200px;
+   object-fit: cover;
+   object-position: center;
+
+}
+.image2{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    object-fit: cover;
+    object-position: center;
+    margin-right: 700px;
+   }
+
+.textbox{
+    font-size: 16px;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(200,200,200);
+    padding: 12px 15px;
+    margin-right: 10px;
+    margin-top: 20px;
+    
+}
+
+.textbox1{
+    font-size: 16px;
+    width: 500px;
+    border-radius: 30px;
+    padding: 12px 15px;
+    border: none;
+    box-shadow: 0  1px 5px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
+}
+
+p{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(100,100,100);
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.label{
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.text-box{
+    font-size: 16px;
+    width: 400px;
+    border: 2px solid rgb(100,100,100);
+    border-radius: 5px;
+    padding: 7px 7px;
+    margin-bottom: 20px;
+   
+}
+.disclaimer{
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.join-button{
+    font-size: 16px;
+    background-color: rgb(10, 102, 194);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    width: 400px;
+    padding: 16px 0;
+    margin-right: 950px;
+}
+
+.cat-profile{
+    margin: 10px 20px;
+    padding: 12px;
+    width: 600px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0,0.3);
+}
+.profile-picture{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    object-fit: cover;
+    object-position: center;
+    vertical-align: middle;
+    margin-right: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+.text-box1{
+    font-size: 18px;
+    width: 300px;
+    border: none;
+    vertical-align: middle;
+
+}
+.tweet-button{
+    font-size: 16px;
+    font-weight: bold;
+    background-color: rgb(10, 102, 194);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    width: 100px;
+    padding: 8px 16px;
+    vertical-align: middle;
+    
+}
+
+.nameText{
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    width: 200px;
+   
+}
+.emailText{
+    display: block;
+    font-size: 16px;
+    margin-bottom: 15px;
+    width: 200px;
+    
+}
+
+.survey{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    width: 250px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+
+}
+
+.yesButton{
+    font-size: 14px;
+}
+
+.noButton{
+    font-size: 14px;
+}
+
+.google-logo{
+    display: block;
+    margin-left: 150px;
+    width: 150px;
+    height: 70px;
+    margin-bottom: 10px;
+}
+.first-name{
+    display: inline-block;
+    font-size: 16px;
+    width: 150px;
+    margin-right: 10px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border: 1px solid rgb(200,200,200);
+    padding: 12px 16px;
+}
+.last-name{
+    display: inline-block;
+    font-size: 16px;
+    width: 150px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border: 1px solid rgb(200,200,200);
+    padding: 12px 16px;
+   
+}
+.email{
+    display: block;
+    font-size: 16px;
+    width: 350px;
+    border: 1px solid rgb(200,200,200);
+    padding: 12px 16px;
+    border-radius: 8px;
+}
+
+.signup-button{
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    background-color:rgb(47, 127, 231);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 300px;
+    padding: 14px 0;
+    margin-top: 10px;
+    
+}
+
+.rideBlock{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.title{
+    font-size: 40px;
+    margin-bottom: 25px;
+    color: black;
+}
+
+.pickup-textbox,.destination-textbox{
+    display: block;
+    background-color: rgb(240, 240, 240);
+    margin-bottom: 10px;
+    border: none;
+    padding: 15px 20px;
+    font-size: 16px;
+    width: 400px;
+}
+.destination-textbox{
+margin-bottom: 35px;
+}
+.request-button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 16px;
+    margin-right: 20px;
+  }
+  
+  .schedule-button {
+    background-color: rgb(240, 240, 240);
+    border: none;
+    padding: 15px 25px;
+    font-size: 16px;
+  }
+
+  .redSquare{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .greenCircle{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background-color: green;
+    margin-bottom: 30px;
+  }
+
+  .service{
+    border: 1px solid  rgb(150, 150, 150);
+    width: 400px;
+    padding-left: 15px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+
+  .question{
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+  }
+
+  .yes-Button{
+    margin-left: 10px;
+    margin-bottom: 5px;
+  }
+
+  .no-Button{
+    margin-left: 10px;
+    margin-bottom: 5px;
+  }
+
+  .card{
+    background-color: rgb(33, 33, 33);
+    padding: 20px 15px;
+    width: 300px;
+  }
+
+  .para1,.para2{
+    font-family: Arial;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .para1{
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .para2{
+       font-size: 15px;
+       color: rgb(160, 160, 160);
+    }

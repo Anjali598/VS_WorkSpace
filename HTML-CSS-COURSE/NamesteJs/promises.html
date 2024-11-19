@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Order and Update Wallet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0 auto;
+            max-width: 600px;
+            padding: 20px;
+        }
+        button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Create Order and Update Wallet</h1>
+
+<!-- Buttons to trigger actions -->
+<button id="createOrderBtn">Create Order and Proceed to Payment</button>
+<button id="showSummaryBtn">Show Order Summary</button>
+<button id="updateWalletBtn">Update Wallet</button>
+
+<!-- Output area to display results -->
+<div id="output"></div>
+
+<script>
+    const items = [
+        { name: "Laptop", price: 1200 },
+        { name: "Mouse", price: 25 },
+        { name: "Keyboard", price: 50 }
+    ];
+
+    let walletBalance = 5000;  // Initial wallet balance
+    let currentOrder = null;   // Will hold the current order details
+    let totalCost = 0;         // Will store total cost of the order
+
+    // Simulate verifying items in the order
+    function verifyItems(items) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (items.length === 0) {
+                    reject("No items in the order!");  // Reject if no items
+                } else {
+                    resolve(items);
+                }
+            }, 1000);  // 1-second delay
+        });
+    }
+
+    // Simulate calculating the total cost
+    function calculateTotal(items) {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                totalCost = items.reduce((sum, item) => sum + item.price, 0);
+                resolve(totalCost);
+            }, 500);  // 0.5-second delay
+        });
+    }
+
+    // Simulate processing the payment
+    function processPayment(total) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (walletBalance >= total) {
+                    walletBalance -= total;  // Deduct from wallet balance
+                    resolve("Payment successful");
+                    console.log(`Payment of $${totalCost} processed successfully`);
+                } else {
+                    reject("Insufficient balance for payment.");
+                }
+            }, 1500);  // 1.5-second delay for payment processing
+        });
+    }
+
+    // Simulate confirming the order
+    function confirmOrder() {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve("Order confirmed successfully!");
+            }, 1000);  // 1-second delay for confirmation
+        });
+    }
+
+    // Function to create order and handle the entire process
+    function createOrder() {
+        verifyItems(items)
+            .then((verifiedItems) => calculateTotal(verifiedItems))
+            .then((total) => processPayment(total))
+            .then(() => confirmOrder())
+            .then((confirmation) => {
+                currentOrder = { items, totalCost };  // Store the order details
+                showOutput(`${confirmation}<br>Order Total: $${totalCost}<br>Remaining Wallet Balance: $${walletBalance}`);
+            })
+            .catch((error) => {
+                showOutput(`Error: ${error}`);
+            });
+    }
+
+    // Function to display the order summary
+    function showOrderSummary() {
+        if (currentOrder) {
+            const itemList = currentOrder.items.map(item => `<li>${item.name} - $${item.price}</li>`).join("");
+            showOutput(`Order Summary:<ul>${itemList}</ul>Total Cost: $${currentOrder.totalCost}`);
+        } else {
+            showOutput("No order placed yet.");
+        }
+    }
+
+    // Function to update wallet balance manually
+    function updateWallet() {
+        walletBalance += 1000;  // Add $1000 to the wallet balance
+        showOutput(`Wallet updated. Current balance: $${walletBalance}`);
+    }
+
+    // Function to display the result in the output area
+    function showOutput(message) {
+        document.getElementById("output").innerHTML = message;
+    }
+
+    // Add event listeners to buttons
+    document.getElementById("createOrderBtn").addEventListener("click", createOrder);
+    document.getElementById("showSummaryBtn").addEventListener("click", showOrderSummary);
+    document.getElementById("updateWalletBtn").addEventListener("click", updateWallet);
+
+</script>
+
+</body>
+</html>
