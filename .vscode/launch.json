@@ -1,0 +1,21 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "open ArrayObject.html",
+            "request": "launch",
+            "type": "msedge",
+            "file": "d:\\VS_WorkSpace\\HTML-CSS-COURSE\\Exercises\\ArrayObject,html"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open section1.html",
+            "file": "d:\\VS_WorkSpace\\HTML-CSS-COURSE\\Exercises\\section1.html"
+        }
+    ]
+}
